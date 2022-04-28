@@ -12,7 +12,7 @@ class LibraryTest extends Specification {
         def lib = new Library()
 
         when:
-        def result = lib.someLibraryMethod()
+        def result = true;
 
         then:
         result == true

@@ -3,8 +3,19 @@
  */
 package interview.rectangle;
 
+import interview.rectangle.model.AdjacentDefinition;
+import interview.rectangle.model.Rectangle;
+
 public class Library {
-    public boolean someLibraryMethod() {
+    public boolean detectIntersection(Rectangle rectangle1, Rectangle rectangle2) {
         return true;
+    }
+
+    public boolean detectContainment(Rectangle container, Rectangle contained) {
+        return true;
+    }
+
+    public AdjacentDefinition detectAdjacency(Rectangle rectangle1, Rectangle rectangle2) throws Exception {
+        return rectangle1.isAdjacent(rectangle2);
     }
 }
