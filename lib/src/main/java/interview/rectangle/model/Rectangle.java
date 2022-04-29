@@ -17,10 +17,10 @@ public class Rectangle implements Shape {
     Double area;
 
     public Rectangle(Coordinate topLeft, Coordinate topRight, Coordinate bottomLeft, Coordinate bottomRight) throws Exception {
-        this.topLeft = topLeft;
-        this.topRight = topRight;
-        this.bottomLeft = bottomLeft;
-        this.bottomRight = bottomRight;
+        this.topLeft = verifyNoInfiniteCoordinate(topLeft);
+        this.topRight = verifyNoInfiniteCoordinate(topRight);
+        this.bottomLeft = verifyNoInfiniteCoordinate(bottomLeft);
+        this.bottomRight = verifyNoInfiniteCoordinate(bottomRight);
 
         this.leftEdge = checkEdge(bottomLeft, topLeft);
         this.topEdge = checkEdge(topLeft, topRight);
@@ -30,6 +30,14 @@ public class Rectangle implements Shape {
         verifyCornerAngles();
 
         this.area = this.leftEdge.getLength() * this.topEdge.getLength();
+    }
+
+    private Coordinate verifyNoInfiniteCoordinate(Coordinate coord) throws Exception {
+        if (coord.getX().isInfinite() || coord.getY().isInfinite()) {
+            throw new Exception("Corner coordinate cannot have infinite coordinate value!");
+        }
+
+        return coord;
     }
 
     private Edge checkEdge(Coordinate start, Coordinate end) throws Exception {
