@@ -21,6 +21,8 @@ public class Coordinate {
     }
 
     public boolean isEqual(Coordinate otherCoord) {
-        return ((this.x == otherCoord.getX()) && (this.y == otherCoord.getY()));
+        return ((this.x.compareTo(otherCoord.getX()) == 0) && (this.y.compareTo(otherCoord.getY()) == 0));
     }
+
+
 }
